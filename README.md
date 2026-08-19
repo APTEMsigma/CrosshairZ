@@ -24,6 +24,8 @@
 
 ---
 
+![CrosshairZ UI Screenshot](docs/screenshot.png)
+
 </div>
 
 ## ✨ Features
@@ -114,6 +116,8 @@ flowchart TD
 crosshairZ/
 ├── bin/                          # Pre-built portable executable
 │   └── crosshairz.exe
+├── docs/                         # Screenshots & visual assets
+│   └── screenshot.png
 ├── gamebar-widget/               # Native UWP Xbox Game Bar Widget package
 │   ├── AppxManifest.xml
 │   ├── Assets/WebCrosshair.html  # High-performance DirectComposition renderer
