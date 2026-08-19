@@ -81,14 +81,47 @@ npm run tauri build -- --no-bundle
 ```
 The resulting standalone executable will be located in `src-tauri/target/release/crosshairz.exe`.
 
+## 📐 Architecture & Data Flow
+
+<div align="center">
+
+![CrosshairZ Software Architecture](docs/architecture.jpg)
+
+</div>
+
+```mermaid
+flowchart TD
+    subgraph UI ["🖥️ Frontend UI (React 19 + TypeScript)"]
+        A["Settings Panel (Shapes, Colors, Hotkeys, GIF/PNG)"] --> B["Zustand Store (Live State)"]
+        B -->|Tauri IPC invoke| C["Backend Commands API"]
+    end
+
+    subgraph RustCore ["⚡ Native Core (Rust & Tauri v2)"]
+        C --> D["State Management & Profile Persistence"]
+        D -->|Win32 DirectComposition| E["Transparent HWND_TOPMOST Overlay"]
+        D -->|Global Hotkeys Hook| F["F8 / F9 Keyboard Listeners"]
+        D -->|Embedded HTTP Stream| G["Sync Server 127.0.0.1:23851"]
+        D -->|AppContainer Fallback| H["LocalState / crosshair.json"]
+    end
+
+    subgraph Games ["🎮 In-Game Rendering"]
+        E -->|Windowed / Borderless| I["Desktop Click-Through Crosshair"]
+        G -->|Latency < 2ms| J["UWP Xbox Game Bar Widget"]
+        H -->|Backup Sync| J
+        J -->|Exclusive Fullscreen| K["DirectX 11/12 & Vulkan Game Screens"]
+    end
+```
+
 ---
 
-## 📂 Project Architecture
+## 📂 Project Structure
 
 ```
 crosshairZ/
 ├── bin/                          # Pre-built portable executable
 │   └── crosshairz.exe
+├── docs/                         # Architecture diagrams & media assets
+│   └── architecture.jpg
 ├── gamebar-widget/               # Native UWP Xbox Game Bar Widget package
 │   ├── AppxManifest.xml
 │   ├── Assets/WebCrosshair.html  # High-performance DirectComposition renderer
