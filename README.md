@@ -83,12 +83,6 @@ The resulting standalone executable will be located in `src-tauri/target/release
 
 ## 📐 Architecture & Data Flow
 
-<div align="center">
-
-![CrosshairZ Software Architecture](docs/architecture.jpg)
-
-</div>
-
 ```mermaid
 flowchart TD
     subgraph UI ["🖥️ Frontend UI (React 19 + TypeScript)"]
@@ -120,8 +114,6 @@ flowchart TD
 crosshairZ/
 ├── bin/                          # Pre-built portable executable
 │   └── crosshairz.exe
-├── docs/                         # Architecture diagrams & media assets
-│   └── architecture.jpg
 ├── gamebar-widget/               # Native UWP Xbox Game Bar Widget package
 │   ├── AppxManifest.xml
 │   ├── Assets/WebCrosshair.html  # High-performance DirectComposition renderer
