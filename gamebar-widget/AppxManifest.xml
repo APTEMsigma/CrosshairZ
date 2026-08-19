@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Package IgnorableNamespaces="uap mp build" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build">
+  
+  <Identity Name="CrosshairZ.GameBarWidget" Publisher="CN=CrosshairZ" Version="1.0.0.1" ProcessorArchitecture="x86"/>
+  <mp:PhoneIdentity PhoneProductId="77c20ee4-d513-4692-997d-54db904eeec2" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <Properties>
+    <DisplayName>CrosshairZ</DisplayName>
+    <PublisherDisplayName>CrosshairZ</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0"/>
+    <PackageDependency Name="Microsoft.NET.Native.Framework.2.2" MinVersion="2.2.29512.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+    <PackageDependency Name="Microsoft.NET.Native.Runtime.2.2" MinVersion="2.2.28604.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+    <PackageDependency Name="Microsoft.VCLibs.140.00" MinVersion="14.0.30035.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+  </Dependencies>
+  <Resources>
+    <Resource Language="EN-US"/>
+    <Resource uap:Scale="200"/>
+    
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="Uwp_Crosshair.exe" EntryPoint="Uwp_Crosshair.App">
+      <uap:VisualElements DisplayName="CrosshairZ" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="CrosshairZ Game Bar Widget" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png"/>
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appExtension">
+          <uap3:AppExtension Name="microsoft.gameBarUIExtension" Id="ExtensionCrosshair" DisplayName="CrosshairZ" Description="CrosshairZ Widget" PublicFolder="ExtensionCrosshair">
+            <uap3:Properties>
+              <GameBarWidget Type="Standard">
+                <HomeMenuVisible>true</HomeMenuVisible>
+                <PinningSupported>true</PinningSupported>
+                <ActivateAfterInstall>false</ActivateAfterInstall>
+                <Window>
+                  <AllowForegroundTransparency>true</AllowForegroundTransparency>
+                  <Size>
+                    <Width>500</Width>
+                    <MinWidth>150</MinWidth>
+                    <MaxWidth>1024</MaxWidth>
+                    <Height>500</Height>
+                    <MinHeight>150</MinHeight>
+                    <MaxHeight>1024</MaxHeight>
+                  </Size>
+                  <ResizeSupported>
+                    <Horizontal>true</Horizontal>
+                    <Vertical>true</Vertical>
+                  </ResizeSupported>
+                </Window>
+              </GameBarWidget>
+            </uap3:Properties>
+          </uap3:AppExtension>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Extensions>
+    
+    <Extension Category="windows.activatableClass.proxyStub">
+      <ProxyStub ClassId="00000355-0000-0000-C000-000000000046">
+        <Path>Microsoft.Gaming.XboxGameBar.winmd</Path>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetAuthHost" InterfaceId="DC263529-B12F-469E-BB35-B94069F5B15A"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetControlHost" InterfaceId="C309CAC7-8435-4082-8F37-784523747047"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetForegroundWorkerHost" InterfaceId="DDB52B57-FA83-420C-AFDE-6FA556E18B83"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetForegroundWorkerPrivate" InterfaceId="42BACDFC-BB28-4E71-99B4-24C034C7B7E0"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarNavigationKeyCombo" InterfaceId="5EEA3DBF-09BB-42A5-B491-CF561E33C172"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetActivatedEventArgsPrivate" InterfaceId="782535A7-9407-4572-BFCB-316B4086F102"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost" InterfaceId="5D12BC93-212B-4B9F-9091-76B73BF56525"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost2" InterfaceId="28717C8B-D8E8-47A8-AF47-A1D5263BAE9B"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost3" InterfaceId="3F5A3F12-C1E4-4942-B80D-3117BC948E29"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost4" InterfaceId="FA696D9E-2501-4B01-B26F-4BB85344740F"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate" InterfaceId="22ABA97F-FB0F-4439-9BDD-2C67B2D5AA8F"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate2" InterfaceId="B2F7DB8C-7540-48DA-9B46-4E60CE0D9DEB"/>
+        <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate3" InterfaceId="4FB89FB6-7CB8-489D-8408-2269E6C733A1"/>
+      </ProxyStub>
+    </Extension>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>Microsoft.Gaming.XboxGameBar.dll</Path>
+        <ActivatableClass ActivatableClassId="Microsoft.Gaming.XboxGameBar.Authentication.XboxGameBarWebAuthenticationBroker" ThreadingModel="both"/>
+        <ActivatableClass ActivatableClassId="Microsoft.Gaming.XboxGameBar.Restricted.XboxGameBarForegroundWorker" ThreadingModel="both"/>
+        <ActivatableClass ActivatableClassId="Microsoft.Gaming.XboxGameBar.XboxGameBarWidget" ThreadingModel="both"/>
+        <ActivatableClass ActivatableClassId="Microsoft.Gaming.XboxGameBar.XboxGameBarWidgetControl" ThreadingModel="both"/>
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+  <Capabilities>
+    <Capability Name="internetClient"/>
+  </Capabilities>
+  <build:Metadata>
+    <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0"/>
+    <build:Item Name="VisualStudio" Version="16.0"/>
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2019"/>
+    <build:Item Name="OperatingSystem" Version="10.0.19041.1 (WinBuild.160101.0800)"/>
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.31613.86"/>
+    <build:Item Name="ProjectGUID" Value="{61177123-D4F2-475F-887E-D5F7EDF5A762}"/>
+    <build:Item Name="ilc.exe" Version="2.2.29722.00 built by: PROJECTNREL"/>
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="10.0.19041.685"/>
+    <build:Item Name="OptimizingToolset" Value="ilc.exe"/>
+    <build:Item Name="UseDotNetNativeSharedAssemblyFrameworkPackage" Value="True"/>
+    <build:Item Name="DisableStackTraceMetadata" Value="false"/>
+    <build:Item Name="DisableExceptionMessages" Value="false"/>
+    <build:Item Name="ShortcutGenericAnalysis" Value="false"/>
+    <build:Item Name="GeneratePGD" Value="false"/>
+    <build:Item Name="ConsumePGD" Value="false"/>
+    <build:Item Name="SingleThreadNUTC" Value="false"/>
+    <build:Item Name="Use64BitCompiler" Value="false"/>
+    <build:Item Name="OptimizeForSize" Value="false"/>
+    <build:Item Name="AlignMethodsAtMinimalBoundaries" Value="false"/>
+    <build:Item Name="LargeAddressAware" Value="false"/>
+    <build:Item Name="NoLinkerSymbols" Value="false"/>
+    <build:Item Name="MakePri.exe" Version="10.0.19041.685 (WinBuild.160101.0800)"/>
+  </build:Metadata>
+</Package>

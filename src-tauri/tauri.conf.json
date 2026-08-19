@@ -1,0 +1,61 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "CrosshairZ",
+  "version": "0.1.0",
+  "identifier": "com.crosshairz.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "CrosshairZ",
+        "url": "index.html",
+        "width": 1060,
+        "height": 680,
+        "minWidth": 940,
+        "minHeight": 600,
+        "theme": "Dark",
+        "center": true
+      },
+      {
+        "label": "overlay",
+        "title": "crosshairz-overlay",
+        "url": "overlay.html",
+        "width": 640,
+        "height": 640,
+        "transparent": true,
+        "decorations": false,
+        "shadow": false,
+        "skipTaskbar": true,
+        "alwaysOnTop": true,
+        "resizable": false,
+        "visible": true,
+        "focus": false,
+        "center": true
+      }
+    ],
+    "security": {
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["$APPDATA/**"]
+      },
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico", "icons/icon.png"],
+    "windows": {
+      "nsis": {
+        "languages": ["Russian"],
+        "displayLanguageSelector": false
+      }
+    }
+  }
+}

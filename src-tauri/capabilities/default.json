@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "Разрешения по умолчанию для окон CrosshairZ",
+  "windows": ["main", "overlay"],
+  "permissions": ["core:default", "core:event:default"]
+}
